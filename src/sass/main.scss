@@ -1,0 +1,158 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700';
+
+.win-notif{
+	display: flex;
+	flex-wrap: wrap;
+	position: fixed;
+	bottom: 30px;
+	right: 0px;
+	width: 300px;
+	padding: 10px;
+	box-sizing: border-box;
+	box-shadow: -1px 1px 10px 0px rgba(0,0,0,0.5);
+
+	user-select: none; //prevent blue highlighting
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: #fff;
+
+	opacity: 1;
+	transform: translateX(0px);
+
+	>.win-notif-image{
+		flex:none;
+		width: 30px;
+		margin-right: 10px;
+
+		>img{
+			width: 30px;
+			height: 30px;
+			vertical-align: top;
+		}
+	}
+
+	>.win-notif-area{
+		flex:1;
+
+		>.win-notif-title{
+			line-height: 0.75;
+			font-weight: 600;
+			margin-bottom: 5px;
+		}
+		>.win-notif-msg{
+			color: rgba(255,255,255,0.75);
+			font-weight: 400;
+			font-size: 13px;
+			line-height: 16px;
+			max-height: 48px;
+			overflow: hidden;
+
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+		}
+	}
+
+	>.win-notif-buttons{
+		flex: none;
+		width: 100%;
+
+		display: flex;
+		justify-content: space-between;
+		margin-top: 15px;
+
+		>.win-notif-accept-button,
+		>.win-notif-decline-button{
+			flex: auto;
+			max-width: 50%;
+			max-width: calc(50% - 3px);
+			text-align: center;
+			background-color: rgba(255,255,255,0.15);
+			box-sizing: border-box;
+			padding: 5px;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+
+			&:hover{
+				background-color: rgba(255,255,255,0.25);
+			}
+		}
+	}
+
+	>.win-notif-close{
+		position: absolute;
+		right : 0;
+		top: 0;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+
+		outline: none;
+		font-size: 16px;
+		cursor: pointer;
+		color: rgba(255, 255, 255, 0.75);
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+	}
+
+	&:hover{
+		>.win-notif-close{
+			background-color: rgba(255,255,255,0.15);
+			color: #fff;
+		}
+	}
+
+	// Responsive
+	@media screen and (max-width:400px){
+		width: 100%;
+		bottom: 0;
+
+		>.win-notif-close{
+			width: 24px;
+			height: 24px;
+			line-height: 24px;
+			font-size: 20px;
+		}
+	}
+
+	// Animations
+	&.ng-enter{
+		animation: notifIn 0.3s ease-in-out;
+	}
+	&.ng-leave{
+		animation: notifOut 0.3s ease-in-out;
+	}
+}
+
+// Notification show/in animation
+@keyframes notifIn{
+	0% {
+		opacity: 0;
+		transform: translateX(100%);
+		filter: blur(1px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+		filter: blur(0px);
+	}
+}
+
+// Notification hide/out animation
+@keyframes notifOut{
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	30% {
+		filter: blur(1px);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+}

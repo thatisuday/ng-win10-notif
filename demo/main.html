@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+	<head>
+		<title>ng-image-gallery</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!-- Local Dependencies -->
+		<!-- <script src="../bower_components/angular/angular.min.js"></script>
+		<script src="../bower_components/angular-animate/angular-animate.min.js"></script> -->
+
+		<!-- Dependencies -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+
+		<!-- Module files-->
+		<script src="../dist/win10-notif.min.js"></script>
+		<link href="../dist/win10-notif.min.css" rel="stylesheet"/>
+
+		<style>
+			body{
+				background-color: #eee;
+			}
+		</style>
+	</head>
+	<body ng-controller="main">
+		<h1>Windows 10 style notification!</h1>
+		<p>{{result}}</p>
+
+		<script>
+			angular
+			.module('demo', ['thatisuday.win10-notif'])
+			.config(function(winNotifOpsProvider){
+				winNotifOpsProvider.setOps({
+					bgColor : '#3f51b5'
+				});
+			})
+			.controller('main', function($rootScope, $scope, $timeout, $winNotif){
+				$timeout(function(){
+					$winNotif.show({
+						timeout : null,
+						hasButtons : true,
+						accept : function(){
+							$scope.result = 'thanks for accepting.';
+							
+							$winNotif.hide();
+						},
+						decline : function(){
+							$scope.result = 'Hmmm! Thanks for rejecting, you fuck-face :(';
+
+							$winNotif.hide(function(){
+								console.warn('user declined.');
+							});
+						}
+					});
+				}, 1000);
+			});
+		</script>
+	</body>
+</html>
