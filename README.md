@@ -1,5 +1,7 @@
-# win10-notif
+# win10-notif [preview](https://rawgit.com/thatisuday/win10-notif/master/demo/main.html)
 Windows 10 style sticky notification for angular.js
+
+![preview](https://github.com/thatisuday/win10-notif/raw/master/res/preview.png)
 
 ***
 
