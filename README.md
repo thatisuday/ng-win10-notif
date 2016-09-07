@@ -1,4 +1,5 @@
-# win10-notif [preview](https://rawgit.com/thatisuday/win10-notif/master/demo/main.html)
+# win10-notif ![bower](https://img.shields.io/bower/v/win10-notif.svg?style=flat-square) [![npm downloads](https://img.shields.io/npm/dt/win10-notif.svg?style=flat-square)](https://www.npmjs.com/package/win10-notif) [![preview](https://img.shields.io/badge/preview-click here-green.svg?style=flat-square)](https://rawgit.com/thatisuday/win10-notif/master/demo/main.html)
+
 Windows 10 style sticky notification for angular.js
 
 ![preview](https://github.com/thatisuday/win10-notif/raw/master/res/preview.png)
