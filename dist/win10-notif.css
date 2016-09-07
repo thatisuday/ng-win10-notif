@@ -10,6 +10,7 @@
   right: 0px;
   width: 300px;
   padding: 10px;
+  z-index: 50;
   box-sizing: border-box;
   box-shadow: -1px 1px 10px 0px rgba(0, 0, 0, 0.5);
   -webkit-user-select: none;
@@ -75,7 +76,8 @@
       padding: 5px;
       cursor: pointer;
       -webkit-transition: background-color 0.2s ease-in-out;
-      transition: background-color 0.2s ease-in-out; }
+      transition: background-color 0.2s ease-in-out;
+      outline: none; }
       .win-notif > .win-notif-buttons > .win-notif-accept-button:hover,
       .win-notif > .win-notif-buttons > .win-notif-decline-button:hover {
         background-color: rgba(255, 255, 255, 0.25); }

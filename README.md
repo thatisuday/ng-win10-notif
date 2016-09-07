@@ -33,6 +33,8 @@ bower install --save win10-notif
 | acceptText | {String} | 'Accept' | Button text for accept button |
 | declineText | {String} | 'Decline' | Button text for decline button |
 
+> You can pass HTML string in `msg`. Please do not abuse this feature, use only `<b>` and `<i>`.
+
 ***
 
 ## Global config

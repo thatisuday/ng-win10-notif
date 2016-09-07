@@ -4,7 +4,7 @@ angular.module('thatisuday.win10-notif', ['ngAnimate']);
 // directive
 angular
 .module('thatisuday.win10-notif')
-.directive('winNotif', ['$rootScope', 'winNotifOps', '$timeout', function($rootScope, winNotifOps, $timeout){
+.directive('winNotif', ['$rootScope', 'winNotifOps', '$timeout', '$sce', function($rootScope, winNotifOps, $timeout, $sce){
 	return {
 		restrict: 'AE',
 		replace : false,
@@ -15,7 +15,7 @@ angular
 						'</div>' +
 						'<div class="win-notif-area">'+
 							'<div class="win-notif-title">{{options.title}}</div>' +
-							'<div class="win-notif-msg">{{options.msg}}</div>' +
+							'<div class="win-notif-msg" ng-bind-html="options.msg"></div>' +
 						'</div>' + 
 						'<div class="win-notif-buttons" ng-show="options.hasButtons">' + 
 							'<div class="win-notif-accept-button" ng-show="options.hasAccept" ng-click="options.accept();">{{options.acceptText}}</div>' +
@@ -57,6 +57,9 @@ angular
 				// use user provided options
 				angular.extend(scope.options, ops);
 				
+				// santize html
+				scope.options.msg = $sce.trustAsHtml(scope.options.msg);
+
 				// display notification element
 				scope.isActive = true;
 
@@ -102,7 +105,7 @@ angular
 .provider('winNotifOps', function(){
 	var defOps = {
 		title 				: 	'Windows!',
-		msg 				: 	'Welcome to Windows 10. We have awesome apps and new browser just for you. Wanna download?',
+		msg 				: 	'Welcome to <b>Windows 10</b>. We have awesome apps and new browser just for you. Wanna download?',
 		hasImg 				: 	true,
 		imgUrl 				: 	'http://icons.iconarchive.com/icons/dakirby309/windows-8-metro/48/Folders-OS-Windows-8-Metro-icon.png',
 		bgColor				: 	'#333',
