@@ -12,7 +12,7 @@ angular
 						'</div>' +
 						'<div class="win-notif-area">'+
 							'<div class="win-notif-title">{{options.title}}</div>' +
-							'<div class="win-notif-msg" ng-bind-html="options.msg"></div>' +
+							'<div class="win-notif-msg" ng-bind-html="msg"></div>' +
 						'</div>' + 
 						'<div class="win-notif-buttons" ng-show="options.hasButtons">' + 
 							'<div class="win-notif-accept-button" ng-show="options.hasAccept" ng-click="options.accept();">{{options.acceptText}}</div>' +
@@ -55,7 +55,7 @@ angular
 				angular.extend(scope.options, ops);
 				
 				// santize html
-				scope.options.msg = $sce.trustAsHtml(scope.options.msg);
+				scope.msg = $sce.trustAsHtml(scope.options.msg);
 
 				// display notification element
 				scope.isActive = true;

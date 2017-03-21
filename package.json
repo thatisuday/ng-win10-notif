@@ -1,6 +1,6 @@
 {
   "name": "win10-notif",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Windows 10 style sticky notification for angular.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
